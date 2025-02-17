@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  climate-docker:
-    container_name: climate-migration
+  my-docker:
+    container_name: docker-first-project
     build: .
     volumes:
       - .:/var/www/html   # Mount current directory if need to inside directory then `- ./docker-cm:/var/www/html`
@@ -12,10 +12,10 @@ services:
   mysql_db:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: climate-migrati0n
-      MYSQL_DATABASE: climate_migration
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: dbname
     ports:
-      - 3307:3306
+      - 3306:3306
   
   phpmyadmin:
     image: phpmyadmin:latest
