@@ -1,7 +1,11 @@
 FROM php:8.1-apache
 
 # Install necessary extensions
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+#RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+RUN apt-get update && apt-get install -y \
+    libicu-dev \
+    && docker-php-ext-install intl
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
